@@ -6,7 +6,7 @@
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 23:04:32 by ccakir            #+#    #+#             */
-/*   Updated: 2025/09/21 23:11:08 by ccakir           ###   ########.fr       */
+/*   Updated: 2025/09/22 19:44:58 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ void	error(t_list *a)
 		if (!str_is_int((char *)temp -> content))
 		{
 			write(2, "Error\n", 6);
+			free(a);
 			exit(EXIT_FAILURE);
 		}
 		check = temp -> next;
@@ -93,6 +94,7 @@ void	error(t_list *a)
 			if(ft_atol((char *)check -> content) == ft_atol((char *)temp -> content))
 			{
 				write(2, "Error\n", 6);
+				free(a);
 				exit(EXIT_FAILURE);
 			}
 			check = check -> next;
