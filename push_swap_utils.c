@@ -6,13 +6,13 @@
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 23:06:10 by ccakir            #+#    #+#             */
-/*   Updated: 2025/09/21 00:24:01 by ccakir           ###   ########.fr       */
+/*   Updated: 2025/09/21 23:12:18 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_sorted(t_stack b)
+int	is_sorted(t_stack *b)
 {
 	t_stack	*tmp;
 	

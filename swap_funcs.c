@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   swap_funcs.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/20 20:16:18 by ccakir            #+#    #+#             */
-/*   Updated: 2025/09/21 22:19:59 by ccakir           ###   ########.fr       */
+/*   Created: 2025/09/21 19:35:10 by ccakir            #+#    #+#             */
+/*   Updated: 2025/09/21 19:36:43 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# define INT_MAX 2147483647
-# define INT_MIN -2147483648
-# define LONG_MAX 9223372036854775807L
-# define LONG_MIN -9223372036854775808L
-# include <stddef.h>
-# include "libft/libft_h"
+void	sa()
+{
+	
+}
 
-void	error(t_list	*a);
+void sb()
+{
+	
+}
 
-#endif
+void ss()
+{
+	
+}
+
+void	pa()
+{
+	
+}
+
+void	pb()
+{
+	
+}
