@@ -1,0 +1,6 @@
+stack_a nın ilk iki elemanını büyükten küçüğe sırala (sa) 
+stack_a nın son elemanının ilk elemanından büyük olup olmadığına bak eğer büyükse son elemanı ilk eleman yap (rra)
+stack_a nın ilk elemanını stack_b ye pushla (pb) 
+eğer stack_b ye pushlanan ilk eleman değilse stack_b nin son elemanıyla kıyasla
+eğer stack_b nin son elemanından büyükse son elemanı o yap (rrb)
+3. push itibariyle stack_b nin ilk ikisini kontrol et eğer 1. 2. den büyükse (sb)
