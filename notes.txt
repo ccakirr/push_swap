@@ -4,3 +4,10 @@ stack_a nın ilk elemanını stack_b ye pushla (pb)
 eğer stack_b ye pushlanan ilk eleman değilse stack_b nin son elemanıyla kıyasla
 eğer stack_b nin son elemanından büyükse son elemanı o yap (rrb)
 3. push itibariyle stack_b nin ilk ikisini kontrol et eğer 1. 2. den büyükse (sb)
+
+
+2. yöntem:
+stack_a nın indexlerini bir structa kaydet
+sorted halini kaydet
+en az move gerektiren ilk hamleyi yap stack_b ye
+ama stack_b ye tersten koy bu soreted indexi
