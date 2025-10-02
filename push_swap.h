@@ -6,7 +6,7 @@
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 20:16:18 by ccakir            #+#    #+#             */
-/*   Updated: 2025/09/25 10:17:32 by ccakir           ###   ########.fr       */
+/*   Updated: 2025/10/02 10:11:49 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,18 @@
 # include <stddef.h>
 # include "libft/libft_h"
 
+typedef struct s_node
+{
+	int	value;
+	int	index;// sıralı konum (rank)
+	int	pos;// şu anki pozisyon
+	int	target_pos;// gitmesi gereken pozisyon
+	int	cost_a;// A stack'i için maliyet
+	int	cost_b;// B stack'i için maliyet
+	struct s_node  *next;
+}	t_stack;
+
+
 void	error(t_list	*a);
 t_list	*array_to_list(char **array);
 void	sa(t_list	**stack_a)
@@ -26,5 +38,6 @@ void	sb(t_list	**stack_b);
 void	ss(t_list	**stack_a, t_list	**stack_b);
 void	pa(t_list **stack_a, t_list **stack_b);
 void	pb(t_list **stack_a, t_list **stack_b);
+t_list	*array_to_list_for_multistr(char **array)
 
 #endif
