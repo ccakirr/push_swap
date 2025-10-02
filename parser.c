@@ -6,7 +6,7 @@
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 10:43:51 by ccakir            #+#    #+#             */
-/*   Updated: 2025/10/02 13:17:29 by ccakir           ###   ########.fr       */
+/*   Updated: 2025/10/02 20:13:33 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static long ft_atol(char *str)
 	{
 		if (str[i] == '-')
 			sign = -1;
-		if (str[++i] == '+' || str[i] == '-')
+		if (str[++i] < '0' || str[i] > '9')
 			return (LONG_MAX);
 	}
 	if (str[i] == '\0') 
@@ -42,7 +42,7 @@ static long ft_atol(char *str)
 	{
 		if ((sign == 1 && res > (INT_MAX - (str[i] - '0')) / 10) || (sign == -1 && -res < (INT_MIN + (str[i] - '0')) / 10))
 			return (LONG_MAX);
-		res = res * 10 + str[i] - '0';
+		res = res * 10 + (str[i] - '0');
 		i++;
 	}
 	return (sign * res);
@@ -81,7 +81,6 @@ long *args_to_long(char **args)
 	int		i;
 	int		count;
 	long	*long_array;
-	
 
 	count = 0;
 	while (args[count])
@@ -116,16 +115,13 @@ void free_stack(t_stack *a)
 	}
 }
 
-
-t_stack *args_to_stack(char	**merged_args)
+t_stack *args_to_stack(long	*longed_args)
 {
 	int		i;
-	long	*arr;
 	t_stack	*head;
 	t_stack	*last;
 	t_stack	*new;
 
-	arr = args_to_long(merged_args);
 	i = 0;
 	head = NULL;
 	while (arr[i] != LONG_MAX)

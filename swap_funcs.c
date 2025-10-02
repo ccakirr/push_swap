@@ -6,16 +6,16 @@
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 19:35:10 by ccakir            #+#    #+#             */
-/*   Updated: 2025/09/25 10:14:29 by ccakir           ###   ########.fr       */
+/*   Updated: 2025/10/02 20:14:40 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"push_swap.h"
 
-void	sa(t_list	**stack_a)
+void	sa(t_stack	**stack_a)
 {
-	t_list	*current;
-	t_list	*tmp;
+	t_stack	*current;
+	t_stack	*tmp;
 
 	current = (*stack_a)->next;
 	tmp = (*stack_a);
@@ -24,10 +24,10 @@ void	sa(t_list	**stack_a)
 	ft_printf("sa\n");
 }
 
-void sb(t_list	**stack_b)
+void sb(t_stack	**stack_b)
 {
-	t_list	*current;
-	t_list	*tmp;
+	t_stack	*current;
+	t_stack	*tmp;
 
 	current = *(stack_b)->next;
 	tmp = *(stack_b);
@@ -36,10 +36,10 @@ void sb(t_list	**stack_b)
 	ft_printf("sb\n");
 }
 
-void ss(t_list	**stack_a, t_list	**stack_b)
+void ss(t_stack	**stack_a, t_stack	**stack_b)
 {
-	t_list	*current;
-	t_list	*tmp;
+	t_stack	*current;
+	t_stack	*tmp;
 
 	current = (*stack_a)->next;
 	tmp = (*stack_a);
@@ -52,9 +52,9 @@ void ss(t_list	**stack_a, t_list	**stack_b)
 	ft_printf("ss\n");
 }
 
-void	pa(t_list **stack_a, t_list **stack_b)
+void	pa(t_stack **stack_a, t_stack **stack_b)
 {
-	t_list *tmp;
+	t_stack *tmp;
 
 	if (!*stack_b)
 		return ;
@@ -65,8 +65,8 @@ void	pa(t_list **stack_a, t_list **stack_b)
 	ft_printf("pa\n");
 }
 
-void	pb(t_list **stack_a, t_list **stack_b)
-{	t_list *tmp;
+void	pb(t_stack **stack_a, t_stack **stack_b)
+{	t_stack *tmp;
 
 	if (!*stack_a)
 		return ;

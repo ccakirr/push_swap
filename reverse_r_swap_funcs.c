@@ -6,16 +6,16 @@
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 19:41:07 by ccakir            #+#    #+#             */
-/*   Updated: 2025/09/29 14:07:13 by ccakir           ###   ########.fr       */
+/*   Updated: 2025/10/02 20:14:15 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rra(t_list	**stack_a)
+void	rra(t_stack	**stack_a)
 {
-	t_list	*tmp;
-	t_list	*last;
+	t_stack	*tmp;
+	t_stack	*last;
 
 	if (!*stack_a || !(*stack_a)->next)
 		return ;
@@ -31,10 +31,10 @@ void	rra(t_list	**stack_a)
 	ft_printf("rra\n");
 }
 
-void	rrb(t_list	**stack_b)
+void	rrb(t_stack	**stack_b)
 {
-	t_list	*tmp;
-	t_list	*last;
+	t_stack	*tmp;
+	t_stack	*last;
 
 	if(!*stack_b || !(*stack_b)->next)
 		return ;
@@ -50,10 +50,10 @@ void	rrb(t_list	**stack_b)
 	ft_printf("rrb\n");
 }
 
-void	rrr(t_list	**stack_a, t_list	**stack_b)
+void	rrr(t_stack	**stack_a, t_stack	**stack_b)
 {
-	t_list	*tmp;
-	t_list	*last;
+	t_stack	*tmp;
+	t_stack	*last;
 
 	if ((!*stack_a || !(*stack_a)->next) || (!*stack_b || !(*stack_b)->next)) 
 		return ;
