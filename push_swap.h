@@ -6,7 +6,7 @@
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 20:16:18 by ccakir            #+#    #+#             */
-/*   Updated: 2025/10/02 10:11:49 by ccakir           ###   ########.fr       */
+/*   Updated: 2025/10/02 13:23:55 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,14 @@ typedef struct s_node
 	struct s_node  *next;
 }	t_stack;
 
-
-void	error(t_list	*a);
-t_list	*array_to_list(char **array);
+char 	**merge_args(int argc, char **argv)
+long 	*args_to_long(char **args)
+void 	free_stack(t_stack *a)
+t_stack	*args_to_stack(char	**merged_args)
 void	sa(t_list	**stack_a)
 void	sb(t_list	**stack_b);
 void	ss(t_list	**stack_a, t_list	**stack_b);
 void	pa(t_list **stack_a, t_list **stack_b);
 void	pb(t_list **stack_a, t_list **stack_b);
-t_list	*array_to_list_for_multistr(char **array)
 
 #endif

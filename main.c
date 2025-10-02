@@ -6,13 +6,13 @@
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 20:16:13 by ccakir            #+#    #+#             */
-/*   Updated: 2025/10/02 13:16:08 by ccakir           ###   ########.fr       */
+/*   Updated: 2025/10/02 13:23:42 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_split(char	**merged_args)
+static void	free_split(char	**merged_args)
 {
 	int	i;
 
@@ -24,7 +24,7 @@ void	free_split(char	**merged_args)
 	}
 	free(merged_args);
 }
-int	is_duplicated(long	*arr)
+static int	is_duplicated(long	*arr)
 {
 	int	i;
 	int	j;
