@@ -6,7 +6,7 @@
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/04 14:17:44 by ccakir            #+#    #+#             */
-/*   Updated: 2025/10/05 16:00:27 by ccakir           ###   ########.fr       */
+/*   Updated: 2025/10/08 22:01:47 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	is_sorted(long	*longed_args)
 		}
 		i++;
 	}
-	return (1);	
+	return (1);
 }
 
 void bubble_sort(long *arr)
@@ -86,17 +86,21 @@ void	pos_counter(t_stack	**stack)
 	}
 }
 
-void	pb_untill_left_min_three(t_stack	**a, t_stack	**b,long	*longed_args)
+void	pb_untill_left_min_three(t_stack **a, t_stack **b, long *longed_args)
 {
-	t_stack	*tmp;
+	int	size;
+	int	i;
 
-	tmp = *a;
-	while(tmp)
+	size = ft_lstsize(&a);
+	i = 0;
+	while (i < size)
 	{
-		if((tmp->value != longed_args[0]) && (tmp->value != longed_args[1]) && (tmp->value != longed_args[2]))
-		{
+		if ((*a)->value != longed_args[0]
+			&& (*a)->value != longed_args[1]
+			&& (*a)->value != longed_args[2])
 			pb(a, b);
-		}
-		tmp = tmp->next;
+		else
+			ra(a); // döndür ki kalanlar en üste gelsin
+		i++;
 	}
 }

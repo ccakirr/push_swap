@@ -6,7 +6,7 @@
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 20:16:13 by ccakir            #+#    #+#             */
-/*   Updated: 2025/10/02 20:15:39 by ccakir           ###   ########.fr       */
+/*   Updated: 2025/10/08 22:03:38 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,12 @@ int	main(int ac, char **av)
 		ft_printf("Error\n");
 		return (0);
 	}
+	if(is_sorted(longed_args))
+	{
+		free_all(longed_args, a, b, merged_args);
+		return (0);
+	}
 	a = args_to_stack(longed_args);
-	//algoritma çağır
+	ft_sort(&a, &b);
 	free_all(longed_args, a, b, merged_args);
 }

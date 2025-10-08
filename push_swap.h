@@ -6,7 +6,7 @@
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 20:16:18 by ccakir            #+#    #+#             */
-/*   Updated: 2025/10/05 15:45:47 by ccakir           ###   ########.fr       */
+/*   Updated: 2025/10/08 22:02:07 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,16 @@ typedef struct s_node
 	struct s_node  *next;
 }	t_stack;
 
-char	**merge_args(int argc, char **argv)
-long	*args_to_long(char **args)
-void	free_stack(t_stack *a)
-t_stack	*args_to_stack(char	**merged_args)
-void	sa(t_list	**stack_a)
+char	**merge_args(int argc, char **argv);
+long	*args_to_long(char **args);
+void	free_stack(t_stack *a);
+t_stack	*args_to_stack(char	**merged_args);
+int		is_sorted(long	*longed_args);
+void	bubble_sort(long *arr);
+void	match_index(t_stack	**a, long	*longed_args);
+void	pos_counter(t_stack	**stack);
+void	pb_untill_left_min_three(t_stack **a, t_stack **b, long *longed_args);
+void	sa(t_list	**stack_a);
 void	sb(t_list	**stack_b);
 void	ss(t_list	**stack_a, t_list	**stack_b);
 void	pa(t_list **stack_a, t_list **stack_b);

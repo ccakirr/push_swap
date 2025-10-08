@@ -6,7 +6,7 @@
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 10:43:51 by ccakir            #+#    #+#             */
-/*   Updated: 2025/10/02 20:13:33 by ccakir           ###   ########.fr       */
+/*   Updated: 2025/10/07 21:21:44 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,7 @@ t_stack *args_to_stack(long	*longed_args)
 	i = 0;
 	head = NULL;
 	while (arr[i] != LONG_MAX)
-    {
+	{
 		new = malloc(sizeof(t_stack));
 		if (!new)
 			exit(0);
