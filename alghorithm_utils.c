@@ -6,7 +6,7 @@
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/04 14:17:44 by ccakir            #+#    #+#             */
-/*   Updated: 2025/10/09 11:10:21 by ccakir           ###   ########.fr       */
+/*   Updated: 2025/10/09 13:09:59 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,16 +93,17 @@ void	pb_untill_left_max_three(t_stack **a, t_stack **b, long *longed_args)
 	int	arr_size;
 
 	arr_size = ft_long_array_size(longed_args);
-	size = ft_lstsize(&a);
+	size = ft_lstsize(*a);
 	i = 0;
-	while (i < size)
+	while (i < size && ft_lstsize(*a) > 3)
 	{
-		if ((*a)->value != longed_args[size]
-			&& (*a)->value != longed_args[size - 1]
-			&& (*a)->value != longed_args[size - 2])
+		if ((*a)->value != longed_args[arr_size - 1]
+			&& (*a)->value != longed_args[arr_size - 2]
+			&& (*a)->value != longed_args[arr_size - 3])
 			pb(a, b);
 		else
 			ra(a);
 		i++;
 	}
 }
+

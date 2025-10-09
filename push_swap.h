@@ -6,7 +6,7 @@
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 20:16:18 by ccakir            #+#    #+#             */
-/*   Updated: 2025/10/09 11:08:50 by ccakir           ###   ########.fr       */
+/*   Updated: 2025/10/09 12:54:38 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include "libft/libft.h"
+# include <stdarg.h>
 
 typedef struct s_node
 {
@@ -33,6 +33,18 @@ typedef struct s_node
 	struct s_node	*next;
 }	t_stack;
 
+char	*ft_strjoin(char const *s1, char const *s2);
+int		ft_lstsize(t_stack *lst);
+char	*ft_strdup(const char *s);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	**ft_split(char *str, char c);
+size_t	ft_strlen(const char *s);
+int		ft_printf(const char *format, ...);
+int		ft_putchar_printf(unsigned char c, int fd);
+int		ft_putnbr_printf(int n, int fd);
+int		ft_putstr_printf(char *str, int fd);
+int		lower_hexa_printer(unsigned long long n);
+int		higher_hexa_printer(unsigned long long n);
 int		ft_long_array_size(long *longed_args);
 char	**merge_args(int argc, char **argv);
 long	*args_to_long(char **args);
@@ -44,7 +56,7 @@ void	match_index(t_stack **a, long *longed_args);
 void	pos_counter(t_stack **stack);
 void	sort_three(t_stack **a);
 void	ft_sort(t_stack **a, t_stack **b, long *longed_args);
-void	pb_until_left_min_three(t_stack **a, t_stack **b, long *longed_args);
+void	pb_untill_left_max_three(t_stack **a, t_stack **b, long *longed_args);
 t_stack	*find_max_index(t_stack **b);
 void	get_max_to_head(t_stack **b, t_stack *max_node);
 int		is_sorted_stack(t_stack **stack);

@@ -6,7 +6,7 @@
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 10:43:51 by ccakir            #+#    #+#             */
-/*   Updated: 2025/10/09 11:11:35 by ccakir           ###   ########.fr       */
+/*   Updated: 2025/10/09 11:49:30 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static long	ft_atol(char *str)
 		res = res * 10 + (str[i] - '0');
 		i++;
 	}
-	if (s[i] != '\0')
+	if (str[i] != '\0')
 		return (LONG_MAX);
 	return (sign * res);
 }

@@ -6,13 +6,13 @@
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 21:58:05 by ccakir            #+#    #+#             */
-/*   Updated: 2025/10/09 11:15:24 by ccakir           ###   ########.fr       */
+/*   Updated: 2025/10/09 13:19:03 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	is_sorted_stack(t_stack **stack)
+int	is_sorted_stack(t_stack **stack)
 {
 	t_stack	*tmp;
 
@@ -26,7 +26,7 @@ static int	is_sorted_stack(t_stack **stack)
 	return (1);
 }
 
-static void	sort_three(t_stack **a)
+void	sort_three(t_stack **a)
 {
 	int	first;
 	int	second;
@@ -53,7 +53,7 @@ static void	sort_three(t_stack **a)
 		rra(a); // 2 3 1
 }
 
-static t_stack	*find_max_index(t_stack	**b)
+t_stack	*find_max_index(t_stack	**b)
 {
 	t_stack	*tmp;
 	t_stack	*max;
@@ -69,7 +69,7 @@ static t_stack	*find_max_index(t_stack	**b)
 	return (max);
 }
 
-static void	get_max_to_head(t_stack	**b, t_stack	*max_node)
+void	get_max_to_head(t_stack	**b, t_stack	*max_node)
 {
 	int	size;
 
@@ -99,7 +99,7 @@ void	ft_sort(t_stack	**a, t_stack **b, long	*longed_args)
 	sort_three(a);
 	while (*b)
 	{
-		pos_counter(b)
+		pos_counter(b);
 		max_node = find_max_index(b);
 		get_max_to_head(b, max_node);
 		pa(a, b);

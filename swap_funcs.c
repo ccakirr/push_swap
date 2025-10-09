@@ -6,49 +6,52 @@
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 19:35:10 by ccakir            #+#    #+#             */
-/*   Updated: 2025/10/09 11:01:09 by ccakir           ###   ########.fr       */
+/*   Updated: 2025/10/09 13:15:24 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_stack	**stack_a)
+void	sa(t_stack **stack_a)
 {
-	t_stack	*current;
-	t_stack	*tmp;
+	int	tmp;
 
-	current = (*stack_a)->next;
-	tmp = (*stack_a);
-	(*stack_a)->content = current->content;
-	current->content = tmp->content;
+	if (!*stack_a || !(*stack_a)->next)
+		return;
+	tmp = (*stack_a)->value;
+	(*stack_a)->value = (*stack_a)->next->value;
+	(*stack_a)->next->value = tmp;
 	ft_printf("sa\n");
 }
 
-void	sb(t_stack	**stack_b)
-{
-	t_stack	*current;
-	t_stack	*tmp;
 
-	current = *(stack_b)->next;
-	tmp = *(stack_b);
-	*(stack_b)->content = current->content;
-	current->content = tmp->content;
+void	sb(t_stack **stack_b)
+{
+	int	tmp;
+
+	if (!*stack_b || !(*stack_b)->next)
+		return;
+	tmp = (*stack_b)->value;
+	(*stack_b)->value = (*stack_b)->next->value;
+	(*stack_b)->next->value = tmp;
 	ft_printf("sb\n");
 }
 
+
 void	ss(t_stack	**stack_a, t_stack	**stack_b)
 {
-	t_stack	*current;
-	t_stack	*tmp;
+	int	tmp;
 
-	current = (*stack_a)->next;
-	tmp = (*stack_a);
-	(*stack_a)->content = current->content;
-	current->content = tmp->content;
-	current = (*stack_b)->next;
-	tmp = (*stack_b);
-	(*stack_b)->content = current->content;
-	current->content = tmp->content;
+	if (!*stack_a || !(*stack_a)->next)
+		return;
+	tmp = (*stack_a)->value;
+	(*stack_a)->value = (*stack_a)->next->value;
+	(*stack_a)->next->value = tmp;
+	if (!*stack_b || !(*stack_b)->next)
+		return;
+	tmp = (*stack_b)->value;
+	(*stack_b)->value = (*stack_b)->next->value;
+	(*stack_b)->next->value = tmp;
 	ft_printf("ss\n");
 }
 
