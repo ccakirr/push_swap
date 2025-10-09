@@ -6,7 +6,7 @@
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 19:41:07 by ccakir            #+#    #+#             */
-/*   Updated: 2025/10/02 20:14:15 by ccakir           ###   ########.fr       */
+/*   Updated: 2025/10/09 11:02:02 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,14 @@ void	rrb(t_stack	**stack_b)
 	t_stack	*tmp;
 	t_stack	*last;
 
-	if(!*stack_b || !(*stack_b)->next)
+	if (!*stack_b || !(*stack_b)->next)
 		return ;
 	tmp = *stack_b;
 	last = *stack_b;
-	while(last->next)
+	while (last->next)
 		last = last->next;
 	last->next = *stack_b;
-	while(tmp->next != last)
+	while (tmp->next != last)
 		tmp = tmp->next;
 	tmp->next = NULL;
 	*stack_b = last;
@@ -55,7 +55,7 @@ void	rrr(t_stack	**stack_a, t_stack	**stack_b)
 	t_stack	*tmp;
 	t_stack	*last;
 
-	if ((!*stack_a || !(*stack_a)->next) || (!*stack_b || !(*stack_b)->next)) 
+	if ((!*stack_a || !(*stack_a)->next) || (!*stack_b || !(*stack_b)->next))
 		return ;
 	tmp = *stack_a;
 	last = *stack_a;
@@ -68,10 +68,10 @@ void	rrr(t_stack	**stack_a, t_stack	**stack_b)
 	*stack_a = last;
 	tmp = *stack_b;
 	last = *stack_b;
-	while(last->next)
+	while (last->next)
 		last = last->next;
 	last->next = *stack_b;
-	while(tmp->next != last)
+	while (tmp->next != last)
 		tmp = tmp->next;
 	tmp->next = NULL;
 	*stack_b = last;

@@ -6,11 +6,11 @@
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 19:35:10 by ccakir            #+#    #+#             */
-/*   Updated: 2025/10/02 20:14:40 by ccakir           ###   ########.fr       */
+/*   Updated: 2025/10/09 11:01:09 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"push_swap.h"
+#include "push_swap.h"
 
 void	sa(t_stack	**stack_a)
 {
@@ -24,7 +24,7 @@ void	sa(t_stack	**stack_a)
 	ft_printf("sa\n");
 }
 
-void sb(t_stack	**stack_b)
+void	sb(t_stack	**stack_b)
 {
 	t_stack	*current;
 	t_stack	*tmp;
@@ -36,7 +36,7 @@ void sb(t_stack	**stack_b)
 	ft_printf("sb\n");
 }
 
-void ss(t_stack	**stack_a, t_stack	**stack_b)
+void	ss(t_stack	**stack_a, t_stack	**stack_b)
 {
 	t_stack	*current;
 	t_stack	*tmp;
@@ -54,7 +54,7 @@ void ss(t_stack	**stack_a, t_stack	**stack_b)
 
 void	pa(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	if (!*stack_b)
 		return ;
@@ -66,7 +66,8 @@ void	pa(t_stack **stack_a, t_stack **stack_b)
 }
 
 void	pb(t_stack **stack_a, t_stack **stack_b)
-{	t_stack *tmp;
+{
+	t_stack	*tmp;
 
 	if (!*stack_a)
 		return ;

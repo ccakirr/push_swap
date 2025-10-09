@@ -6,7 +6,7 @@
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 20:16:13 by ccakir            #+#    #+#             */
-/*   Updated: 2025/10/08 22:03:38 by ccakir           ###   ########.fr       */
+/*   Updated: 2025/10/09 10:55:11 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	free_split(char	**merged_args)
 	int	i;
 
 	i = 0;
-	while(merged_args[i])
+	while (merged_args[i])
 	{
 		free(merged_args[i]);
 		i++;
@@ -25,12 +25,16 @@ static void	free_split(char	**merged_args)
 	free(merged_args);
 }
 
-static void free_all(long *longed_args, t_stack	stack_a, t_stack	stack_b, char	**merged_args)
+static void	free_all(long *longed_args, t_stack	*a, t_stack	*b, char	**merged_args)
 {
-	free(longed_args);
-	free_split(merged_args);
-	free_stack(a);
-	free_stack(b);
+	if (longed_args)
+		free(longed_args);
+	if (merged_args)
+		free_split(merged_args);
+	if (a)
+		free_stack(a);
+	if (b)
+		free_stack(b);
 }
 
 static int	is_duplicated(long	*arr)
@@ -39,18 +43,28 @@ static int	is_duplicated(long	*arr)
 	int	j;
 
 	i = 0;
-	while(arr[i] != LONG_MAX)
+	while (arr[i] != LONG_MAX)
 	{
 		j = i + 1;
-		while(arr[j] != LONG_MAX)
+		while (arr[j] != LONG_MAX)
 		{
-			if(arr[i] == arr[j])
+			if (arr[i] == arr[j])
 				return (1);
 			j++;
 		}
 		i++;
 	}
 	return (0);
+}
+
+int	ft_long_array_size(long	*longed_args)
+{
+	int	i;
+
+	i = 0;
+	while (longed_args[i] != LONG_MAX)
+		i++;
+	return (i);
 }
 
 int	main(int ac, char **av)
@@ -61,10 +75,9 @@ int	main(int ac, char **av)
 	long	*longed_args;
 
 	b = NULL;
-	if(ac >= 2)
-		merged_args = merge_args(ac, av);
-	else
-		return(0);
+	if (ac < 2)
+		return (0);
+	merged_args = merge_args(ac, av);
 	longed_args = args_to_long(merged_args);
 	if (is_duplicated(longed_args))
 	{
@@ -72,12 +85,13 @@ int	main(int ac, char **av)
 		ft_printf("Error\n");
 		return (0);
 	}
-	if(is_sorted(longed_args))
+	if (is_sorted(longed_args))
 	{
 		free_all(longed_args, a, b, merged_args);
 		return (0);
 	}
 	a = args_to_stack(longed_args);
-	ft_sort(&a, &b);
+	ft_sort(&a, &b, longed_args);
 	free_all(longed_args, a, b, merged_args);
+	return (0);
 }

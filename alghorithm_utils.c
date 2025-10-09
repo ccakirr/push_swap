@@ -6,7 +6,7 @@
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/04 14:17:44 by ccakir            #+#    #+#             */
-/*   Updated: 2025/10/08 22:01:47 by ccakir           ###   ########.fr       */
+/*   Updated: 2025/10/09 11:10:21 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	is_sorted(long	*longed_args)
 	int	j;
 
 	i = 0;
-	while(longed_args[i] != LONG_MAX)
+	while (longed_args[i] != LONG_MAX)
 	{
 		j = i + 1;
 		while (longed_args[j] != LONG_MAX)
@@ -32,11 +32,11 @@ int	is_sorted(long	*longed_args)
 	return (1);
 }
 
-void bubble_sort(long *arr)
+void	bubble_sort(long *arr)
 {
-	int i;
-	int j;
-	long tmp;
+	int		i;
+	int		j;
+	long	tmp;
 
 	i = 0;
 	while (arr[i + 1] != LONG_MAX)
@@ -58,19 +58,20 @@ void bubble_sort(long *arr)
 
 void	match_index(t_stack	**a, long	*longed_args)
 {
-	int	i;
+	int		i;
 	t_stack	*tmp;
 
-	tmp  = *a;
-	while(tmp)
+	tmp = *a;
+	while (tmp)
 	{
 		i = 0;
-		while(longed_args[i] != tmp->value)
+		while (longed_args[i] != tmp->value)
 			i++;
 		tmp->index = i;
 		tmp = tmp->next;
 	}
 }
+
 void	pos_counter(t_stack	**stack)
 {
 	int		pos_counter;
@@ -78,29 +79,30 @@ void	pos_counter(t_stack	**stack)
 
 	tmp = *stack;
 	pos_counter = 0;
-	while(tmp)
+	while (tmp)
 	{
-		tmp->pos = pos_counter;
-		pos_counter++;
+		tmp->pos = pos_counter++;
 		tmp = tmp->next;
 	}
 }
 
-void	pb_untill_left_min_three(t_stack **a, t_stack **b, long *longed_args)
+void	pb_untill_left_max_three(t_stack **a, t_stack **b, long *longed_args)
 {
 	int	size;
 	int	i;
+	int	arr_size;
 
+	arr_size = ft_long_array_size(longed_args);
 	size = ft_lstsize(&a);
 	i = 0;
 	while (i < size)
 	{
-		if ((*a)->value != longed_args[0]
-			&& (*a)->value != longed_args[1]
-			&& (*a)->value != longed_args[2])
+		if ((*a)->value != longed_args[size]
+			&& (*a)->value != longed_args[size - 1]
+			&& (*a)->value != longed_args[size - 2])
 			pb(a, b);
 		else
-			ra(a); // döndür ki kalanlar en üste gelsin
+			ra(a);
 		i++;
 	}
 }
