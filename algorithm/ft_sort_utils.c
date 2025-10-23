@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   alghorithm_utils.c                                 :+:      :+:    :+:   */
+/*   ft_sort_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/04 14:17:44 by ccakir            #+#    #+#             */
-/*   Updated: 2025/10/09 13:09:59 by ccakir           ###   ########.fr       */
+/*   Updated: 2025/10/23 21:29:03 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,45 +65,48 @@ void	match_index(t_stack	**a, long	*longed_args)
 	while (tmp)
 	{
 		i = 0;
-		while (longed_args[i] != tmp->value)
+		while (longed_args[i] != LONG_MAX)
+		{
+			if (longed_args[i] == tmp->value)
+			{
+				tmp->index = i;
+				break;
+			}
 			i++;
-		tmp->index = i;
+		}
 		tmp = tmp->next;
 	}
 }
 
-void	pos_counter(t_stack	**stack)
+int	chunk_generator(t_stack **stack)
 {
-	int		pos_counter;
+	int		chunk_size;
+	int		list_size;
+	int		chunk_count;
 	t_stack	*tmp;
 
+	list_size = ft_lstsize(*stack);
+	if (list_size <= 100)
+		chunk_count = 5;
+	else
+		chunk_count = 11;
+	chunk_size = list_size / chunk_count;
+
 	tmp = *stack;
-	pos_counter = 0;
 	while (tmp)
-	{
-		tmp->pos = pos_counter++;
+	{	
+		tmp->chunk = tmp->index / chunk_size;
+		if (tmp->chunk >= chunk_count)
+			tmp->chunk = chunk_count - 1;
 		tmp = tmp->next;
 	}
+	return (chunk_count);
 }
 
-void	pb_untill_left_max_three(t_stack **a, t_stack **b, long *longed_args)
+int	is_in_chunks(t_stack **a, int current_chunk)
 {
-	int	size;
-	int	i;
-	int	arr_size;
-
-	arr_size = ft_long_array_size(longed_args);
-	size = ft_lstsize(*a);
-	i = 0;
-	while (i < size && ft_lstsize(*a) > 3)
-	{
-		if ((*a)->value != longed_args[arr_size - 1]
-			&& (*a)->value != longed_args[arr_size - 2]
-			&& (*a)->value != longed_args[arr_size - 3])
-			pb(a, b);
-		else
-			ra(a);
-		i++;
-	}
+	t_stack *tmp = *a;
+	if (!tmp)
+		return (0);
+	return (tmp->chunk == current_chunk);
 }
-

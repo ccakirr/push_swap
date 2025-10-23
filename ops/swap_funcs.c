@@ -6,7 +6,7 @@
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 19:35:10 by ccakir            #+#    #+#             */
-/*   Updated: 2025/10/09 13:15:24 by ccakir           ###   ########.fr       */
+/*   Updated: 2025/10/23 21:00:56 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,20 @@ void	ss(t_stack	**stack_a, t_stack	**stack_b)
 {
 	int	tmp;
 
-	if (!*stack_a || !(*stack_a)->next)
+	if ((!*stack_a || !(*stack_a)->next) && (!*stack_b || !(*stack_b)->next))
 		return;
-	tmp = (*stack_a)->value;
-	(*stack_a)->value = (*stack_a)->next->value;
-	(*stack_a)->next->value = tmp;
-	if (!*stack_b || !(*stack_b)->next)
-		return;
-	tmp = (*stack_b)->value;
-	(*stack_b)->value = (*stack_b)->next->value;
-	(*stack_b)->next->value = tmp;
+	if (*stack_a && (*stack_a)->next)
+	{
+		tmp = (*stack_a)->value;
+		(*stack_a)->value = (*stack_a)->next->value;
+		(*stack_a)->next->value = tmp;
+	}
+	if (*stack_b && (*stack_b)->next)
+	{
+		tmp = (*stack_b)->value;
+		(*stack_b)->value = (*stack_b)->next->value;
+		(*stack_b)->next->value = tmp;
+	}
 	ft_printf("ss\n");
 }
 

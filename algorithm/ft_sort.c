@@ -6,60 +6,31 @@
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 21:58:05 by ccakir            #+#    #+#             */
-/*   Updated: 2025/10/09 13:19:03 by ccakir           ###   ########.fr       */
+/*   Updated: 2025/10/23 21:04:08 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_sorted_stack(t_stack **stack)
+int	has_chunk(t_stack **a, int chunk_number)
 {
-	t_stack	*tmp;
-
-	tmp = *stack;
-	while (tmp && tmp->next)
+	t_stack	*tmp = *a;
+	while (tmp)
 	{
-		if (tmp->value > tmp->next->value)
-			return (0);
+		if (tmp->chunk == chunk_number)
+			return (1);
 		tmp = tmp->next;
 	}
-	return (1);
+	return (0);
 }
 
-void	sort_three(t_stack **a)
-{
-	int	first;
-	int	second;
-	int	third;
-
-	first = (*a)->index;
-	second = (*a)->next->index;
-	third = (*a)->next->next->index;
-	if (first > second && second < third && first < third)
-		sa(a); // 2 1 3
-	else if (first > second && second > third)
-	{
-		sa(a);
-		rra(a);
-	} // 3 2 1
-	else if (first > second && second < third && first > third)
-		ra(a); // 2 3 1
-	else if (first < second && second > third && first < third)
-	{
-		sa(a);
-		ra(a);
-	} // 1 3 2
-	else if (first < second && second > third && first > third)
-		rra(a); // 2 3 1
-}
-
-t_stack	*find_max_index(t_stack	**b)
+t_stack	*find_max_index(t_stack	*b)
 {
 	t_stack	*tmp;
 	t_stack	*max;
 
-	tmp = *b;
-	max = *b;
+	tmp = b;
+	max = b;
 	while (tmp)
 	{
 		if ((max->index) < (tmp->index))
@@ -69,10 +40,28 @@ t_stack	*find_max_index(t_stack	**b)
 	return (max);
 }
 
-void	get_max_to_head(t_stack	**b, t_stack	*max_node)
+void	update_positions(t_stack **stack)
 {
-	int	size;
+	t_stack	*tmp;
+	int		i;
 
+	tmp = *stack;
+	i = 0;
+	while (tmp)
+	{
+		tmp->pos = i;
+		tmp = tmp->next;
+		i++;
+	}
+}
+
+void	get_max_to_head(t_stack	**b, t_stack	**a)
+{
+	int		size;
+	t_stack	*max_node;
+
+	update_positions(b);
+	max_node = find_max_index(*b);
 	size = ft_lstsize(*b);
 	if (max_node->pos <= (size / 2))
 		while ((*b)->index != max_node->index)
@@ -80,11 +69,13 @@ void	get_max_to_head(t_stack	**b, t_stack	*max_node)
 	else
 		while ((*b)->index != max_node->index)
 			rrb(b);
+	pa(a, b);
 }
 
 void	ft_sort(t_stack	**a, t_stack **b, long	*longed_args)
 {
-	t_stack	*max_node;
+	int	chunk_count;
+	int	current_chunk;
 
 	bubble_sort(longed_args);
 	match_index(a, longed_args);
@@ -93,15 +84,20 @@ void	ft_sort(t_stack	**a, t_stack **b, long	*longed_args)
 	else if (ft_lstsize(*a) == 2)
 	{
 		sa(a);
-		exit(0);
+		return ;
 	}
-	pb_untill_left_max_three(a, b, longed_args);
-	sort_three(a);
-	while (*b)
+	chunk_count = chunk_generator(a);
+	current_chunk = 0;
+	while(current_chunk < chunk_count && *a)
 	{
-		pos_counter(b);
-		max_node = find_max_index(b);
-		get_max_to_head(b, max_node);
-		pa(a, b);
+		if (is_in_chunks(a, current_chunk))
+			pb(a, b);
+		else if (has_chunk(a, current_chunk))
+			ra(a);
+		else
+			current_chunk++;
 	}
+	while(*b)
+		get_max_to_head(b, a);
+	
 }

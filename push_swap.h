@@ -6,7 +6,7 @@
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 20:16:18 by ccakir            #+#    #+#             */
-/*   Updated: 2025/10/09 12:54:38 by ccakir           ###   ########.fr       */
+/*   Updated: 2025/10/23 18:55:19 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,13 @@ typedef struct s_node
 {
 	int				value;
 	int				index;
+	int				chunk;
 	int				pos;
-	int				target_pos;
 	int				cost_a;
 	int				cost_b;
 	struct s_node	*next;
 }	t_stack;
 
-char	*ft_strjoin(char const *s1, char const *s2);
 int		ft_lstsize(t_stack *lst);
 char	*ft_strdup(const char *s);
 char	*ft_strjoin(char const *s1, char const *s2);
@@ -53,13 +52,13 @@ void	free_stack(t_stack *a);
 int		is_sorted(long *longed_args);
 void	bubble_sort(long *arr);
 void	match_index(t_stack **a, long *longed_args);
-void	pos_counter(t_stack **stack);
-void	sort_three(t_stack **a);
+int		chunk_generator(t_stack **stack);
+int		is_in_chunks(t_stack	**a, int	current_chunk);
+int		has_chunk(t_stack **a, int chunk_number);
+void	update_positions(t_stack **stack);
 void	ft_sort(t_stack **a, t_stack **b, long *longed_args);
-void	pb_untill_left_max_three(t_stack **a, t_stack **b, long *longed_args);
-t_stack	*find_max_index(t_stack **b);
-void	get_max_to_head(t_stack **b, t_stack *max_node);
-int		is_sorted_stack(t_stack **stack);
+t_stack	*find_max_index(t_stack *b);
+void	get_max_to_head(t_stack	**b, t_stack	**a);
 void	ra(t_stack **stack_a);
 void	rb(t_stack **stack_b);
 void	rr(t_stack **stack_a, t_stack **stack_b);

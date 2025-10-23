@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse_r_swap_funcs.c                             :+:      :+:    :+:   */
+/*   r_swap_funcs.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/21 19:41:07 by ccakir            #+#    #+#             */
-/*   Updated: 2025/10/09 11:02:02 by ccakir           ###   ########.fr       */
+/*   Created: 2025/09/21 19:38:34 by ccakir            #+#    #+#             */
+/*   Updated: 2025/10/09 13:25:12 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rra(t_stack	**stack_a)
+void	ra(t_stack	**stack_a)
 {
 	t_stack	*tmp;
 	t_stack	*last;
@@ -20,18 +20,16 @@ void	rra(t_stack	**stack_a)
 	if (!*stack_a || !(*stack_a)->next)
 		return ;
 	tmp = *stack_a;
+	*stack_a = (*stack_a)->next;
 	last = *stack_a;
 	while (last->next)
 		last = last->next;
-	last->next = (*stack_a);
-	while (tmp->next != last)
-		tmp = tmp->next;
+	last->next = tmp;
 	tmp->next = NULL;
-	*stack_a = last;
-	ft_printf("rra\n");
+	ft_printf("ra\n");
 }
 
-void	rrb(t_stack	**stack_b)
+void	rb(t_stack	**stack_b)
 {
 	t_stack	*tmp;
 	t_stack	*last;
@@ -39,18 +37,16 @@ void	rrb(t_stack	**stack_b)
 	if (!*stack_b || !(*stack_b)->next)
 		return ;
 	tmp = *stack_b;
+	*stack_b = (*stack_b)->next;
 	last = *stack_b;
 	while (last->next)
 		last = last->next;
-	last->next = *stack_b;
-	while (tmp->next != last)
-		tmp = tmp->next;
+	last->next = tmp;
 	tmp->next = NULL;
-	*stack_b = last;
-	ft_printf("rrb\n");
+	ft_printf("rb\n");
 }
 
-void	rrr(t_stack	**stack_a, t_stack	**stack_b)
+void	rr(t_stack	**stack_a, t_stack	**stack_b)
 {
 	t_stack	*tmp;
 	t_stack	*last;
@@ -58,22 +54,18 @@ void	rrr(t_stack	**stack_a, t_stack	**stack_b)
 	if ((!*stack_a || !(*stack_a)->next) || (!*stack_b || !(*stack_b)->next))
 		return ;
 	tmp = *stack_a;
+	*stack_a = (*stack_a)->next;
 	last = *stack_a;
 	while (last->next)
 		last = last->next;
-	last->next = (*stack_a);
-	while (tmp->next != last)
-		tmp = tmp->next;
+	last->next = tmp;
 	tmp->next = NULL;
-	*stack_a = last;
 	tmp = *stack_b;
+	*stack_b = (*stack_b)->next;
 	last = *stack_b;
 	while (last->next)
 		last = last->next;
-	last->next = *stack_b;
-	while (tmp->next != last)
-		tmp = tmp->next;
+	last->next = tmp;
 	tmp->next = NULL;
-	*stack_b = last;
-	ft_printf("rrr\n");
+	ft_printf("rr\n");
 }

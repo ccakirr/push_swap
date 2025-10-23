@@ -1,19 +1,21 @@
-# **************************************************************************** #
-#                                   Makefile                                   #
-# **************************************************************************** #
-
 NAME		= push_swap
 
 CC			= cc
-CFLAGS		= -Wall -Wextra -Werror
-SRCS		= main.c parser.c ft_sort.c alghorithm_utils.c \
-			  r_swap_funcs.c reverse_r_swap_funcs.c swap_funcs.c ft_printf.c \
-			  ft_printf_utils.c ft_split.c libft_func.c
-OBJS		= $(SRCS:.c=.o)
 
-# -----------------------------------------
-#                RULES
-# -----------------------------------------
+CFLAGS		= -Wall -Wextra -Werror -I.
+
+SRCS =  main.c \
+		parser.c\
+		algorithm/ft_sort.c \
+		algorithm/ft_sort_utils.c \
+		ops/swap_funcs.c \
+		ops/r_swap_funcs.c \
+		ops/reverse_r_swap_funcs.c \
+		libft/ft_split.c \
+		libft/libft_func.c \
+		libft/ft_printf.c\
+		libft/ft_printf_utils.c
+OBJS		= $(SRCS:.c=.o)
 
 all: $(NAME)
 
