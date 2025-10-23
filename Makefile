@@ -35,3 +35,15 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
+
+test100: fclean all
+	@ARG="$(shell shuf -i 1-100 -n 100)"; ./push_swap $$ARG | ./checker_linux $$ARG
+
+test500: fclean all
+	@ARG="$(shell shuf -i 1-500 -n 500)"; ./push_swap $$ARG | ./checker_linux $$ARG
+
+lc100: fclean all
+	@ARG="$(shell shuf -i 1-100 -n 100)"; ./push_swap $$ARG | wc -l
+
+lc500: fclean all
+	@ARG="$(shell shuf -i 1-500 -n 500)"; ./push_swap $$ARG | wc -l
