@@ -44,6 +44,8 @@ test500: fclean all
 
 lc100: fclean all
 	@ARG="$(shell shuf -i 1-100 -n 100)"; ./push_swap $$ARG | wc -l
+	make fclean
 
 lc500: fclean all
 	@ARG="$(shell shuf -i 1-500 -n 500)"; ./push_swap $$ARG | wc -l
+	make fclean
