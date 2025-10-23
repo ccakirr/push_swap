@@ -6,7 +6,7 @@
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 10:43:51 by ccakir            #+#    #+#             */
-/*   Updated: 2025/10/23 18:43:47 by ccakir           ###   ########.fr       */
+/*   Updated: 2025/10/23 23:18:43 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,23 +21,22 @@ static long	ft_atol(char *str)
 	i = 0;
 	sign = 1;
 	res = 0;
-	if (str[i] == '+' || str[i] == '-')
+	if ((str[i] == '+' || str[i] == '-') && str[i + 1])
 	{
 		if (str[i] == '-')
 			sign = -1;
-		if (str[++i] < '0' || str[i] > '9')
-			return (LONG_MAX);
+		i++;
 	}
-	if (str[i] == '\0')
+	else if (str[i] == '+' || str[i] == '-')
 		return (LONG_MAX);
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		if ((sign == 1 && res > (INT_MAX - (str[i] - '0')) / 10) || (sign == -1 && -res < (INT_MIN + (str[i] - '0')) / 10))
+		if ((sign == 1 && res > (INT_MAX - (str[i] - '0')) / 10)
+			|| (sign == -1 && (-1 * res) < (INT_MIN + (str[i] - '0')) / 10))
 			return (LONG_MAX);
-		res = res * 10 + (str[i] - '0');
-		i++;
+		res = res * 10 + (str[i++] - '0');
 	}
-	if (str[i] != '\0')
+	if (str[i])
 		return (LONG_MAX);
 	return (sign * res);
 }

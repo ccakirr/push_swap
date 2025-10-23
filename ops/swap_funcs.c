@@ -6,7 +6,7 @@
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 19:35:10 by ccakir            #+#    #+#             */
-/*   Updated: 2025/10/23 21:00:56 by ccakir           ###   ########.fr       */
+/*   Updated: 2025/10/23 23:07:27 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,33 +17,31 @@ void	sa(t_stack **stack_a)
 	int	tmp;
 
 	if (!*stack_a || !(*stack_a)->next)
-		return;
+		return ;
 	tmp = (*stack_a)->value;
 	(*stack_a)->value = (*stack_a)->next->value;
 	(*stack_a)->next->value = tmp;
 	ft_printf("sa\n");
 }
 
-
 void	sb(t_stack **stack_b)
 {
 	int	tmp;
 
 	if (!*stack_b || !(*stack_b)->next)
-		return;
+		return ;
 	tmp = (*stack_b)->value;
 	(*stack_b)->value = (*stack_b)->next->value;
 	(*stack_b)->next->value = tmp;
 	ft_printf("sb\n");
 }
 
-
 void	ss(t_stack	**stack_a, t_stack	**stack_b)
 {
 	int	tmp;
 
 	if ((!*stack_a || !(*stack_a)->next) && (!*stack_b || !(*stack_b)->next))
-		return;
+		return ;
 	if (*stack_a && (*stack_a)->next)
 	{
 		tmp = (*stack_a)->value;

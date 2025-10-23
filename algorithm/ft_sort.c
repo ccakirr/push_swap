@@ -6,7 +6,7 @@
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 21:58:05 by ccakir            #+#    #+#             */
-/*   Updated: 2025/10/23 21:04:08 by ccakir           ###   ########.fr       */
+/*   Updated: 2025/10/23 23:10:13 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 int	has_chunk(t_stack **a, int chunk_number)
 {
-	t_stack	*tmp = *a;
+	t_stack	*tmp;
+
+	tmp = *a;
 	while (tmp)
 	{
 		if (tmp->chunk == chunk_number)
@@ -88,7 +90,7 @@ void	ft_sort(t_stack	**a, t_stack **b, long	*longed_args)
 	}
 	chunk_count = chunk_generator(a);
 	current_chunk = 0;
-	while(current_chunk < chunk_count && *a)
+	while (current_chunk < chunk_count && *a)
 	{
 		if (is_in_chunks(a, current_chunk))
 			pb(a, b);
@@ -97,7 +99,6 @@ void	ft_sort(t_stack	**a, t_stack **b, long	*longed_args)
 		else
 			current_chunk++;
 	}
-	while(*b)
+	while (*b)
 		get_max_to_head(b, a);
-	
 }

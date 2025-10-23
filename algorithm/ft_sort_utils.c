@@ -6,7 +6,7 @@
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/04 14:17:44 by ccakir            #+#    #+#             */
-/*   Updated: 2025/10/23 21:29:03 by ccakir           ###   ########.fr       */
+/*   Updated: 2025/10/23 23:08:52 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	match_index(t_stack	**a, long	*longed_args)
 			if (longed_args[i] == tmp->value)
 			{
 				tmp->index = i;
-				break;
+				break ;
 			}
 			i++;
 		}
@@ -91,10 +91,9 @@ int	chunk_generator(t_stack **stack)
 	else
 		chunk_count = 11;
 	chunk_size = list_size / chunk_count;
-
 	tmp = *stack;
 	while (tmp)
-	{	
+	{
 		tmp->chunk = tmp->index / chunk_size;
 		if (tmp->chunk >= chunk_count)
 			tmp->chunk = chunk_count - 1;
@@ -105,7 +104,9 @@ int	chunk_generator(t_stack **stack)
 
 int	is_in_chunks(t_stack **a, int current_chunk)
 {
-	t_stack *tmp = *a;
+	t_stack	*tmp;
+
+	tmp = *a;
 	if (!tmp)
 		return (0);
 	return (tmp->chunk == current_chunk);

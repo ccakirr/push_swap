@@ -6,7 +6,7 @@
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 20:16:13 by ccakir            #+#    #+#             */
-/*   Updated: 2025/10/09 10:55:11 by ccakir           ###   ########.fr       */
+/*   Updated: 2025/10/23 22:51:54 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ static void	free_split(char	**merged_args)
 	free(merged_args);
 }
 
-static void	free_all(long *longed_args, t_stack	*a, t_stack	*b, char	**merged_args)
+static void	free_all(long *longed_args, t_stack	*a,
+						t_stack	*b, char	**merged_args)
 {
 	if (longed_args)
 		free(longed_args);
