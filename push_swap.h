@@ -6,7 +6,7 @@
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 20:16:18 by ccakir            #+#    #+#             */
-/*   Updated: 2025/10/23 22:56:32 by ccakir           ###   ########.fr       */
+/*   Updated: 2025/10/29 17:26:41 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int		ft_putstr_printf(char *str, int fd);
 int		lower_hexa_printer(unsigned long long n);
 int		higher_hexa_printer(unsigned long long n);
 int		ft_long_array_size(long *longed_args);
+void	free_split(char	**merged_args);
 char	**merge_args(int argc, char **argv);
 long	*args_to_long(char **args);
 t_stack	*args_to_stack(long *longed_args);

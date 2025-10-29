@@ -6,7 +6,7 @@
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/04 14:17:44 by ccakir            #+#    #+#             */
-/*   Updated: 2025/10/23 23:08:52 by ccakir           ###   ########.fr       */
+/*   Updated: 2025/10/29 17:10:37 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,8 @@ int	chunk_generator(t_stack **stack)
 	else
 		chunk_count = 11;
 	chunk_size = list_size / chunk_count;
+	if (chunk_size == 0)
+		chunk_size = 1;
 	tmp = *stack;
 	while (tmp)
 	{

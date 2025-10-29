@@ -6,7 +6,7 @@
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 10:43:51 by ccakir            #+#    #+#             */
-/*   Updated: 2025/10/23 23:18:43 by ccakir           ###   ########.fr       */
+/*   Updated: 2025/10/29 17:42:36 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ char	**merge_args(int argc, char **argv)
 	if (!res[0])
 	{
 		ft_printf("Error\n");
-		free(res);
-		exit(0);
+		free_split(res);
+		return (NULL);
 	}
 	return (res);
 }
@@ -80,7 +80,7 @@ long	*args_to_long(char **args)
 		count++;
 	long_array = malloc(sizeof(long) * (count + 1));
 	if (!long_array)
-		exit(EXIT_FAILURE);
+		return (NULL);
 	i = 0;
 	while (args[i])
 	{
@@ -89,7 +89,7 @@ long	*args_to_long(char **args)
 		{
 			write(2, "Error\n", 6);
 			free(long_array);
-			exit(EXIT_FAILURE);
+			return (NULL);
 		}
 		i++;
 	}
@@ -123,7 +123,7 @@ t_stack	*args_to_stack(long	*longed_args)
 	{
 		new = malloc(sizeof(t_stack));
 		if (!new)
-			exit(0);
+			return (NULL);
 		new->value = (int)longed_args[i];
 		new->next = NULL;
 		if (!head)

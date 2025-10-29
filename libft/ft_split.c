@@ -6,7 +6,7 @@
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 00:25:42 by ccakir            #+#    #+#             */
-/*   Updated: 2025/10/09 12:20:44 by ccakir           ###   ########.fr       */
+/*   Updated: 2025/10/29 18:14:01 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ char	**ft_split(char *str, char c)
 
 	i = 0;
 	j = 0;
+	if (!str)
+		return (NULL);
 	res = malloc(sizeof(char *) * (word_count(str, c) + 1));
 	if (!res)
 		return (NULL);
