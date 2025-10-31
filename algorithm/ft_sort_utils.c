@@ -6,7 +6,7 @@
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/04 14:17:44 by ccakir            #+#    #+#             */
-/*   Updated: 2025/10/29 17:10:37 by ccakir           ###   ########.fr       */
+/*   Updated: 2025/10/31 17:20:19 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,9 @@ int	chunk_generator(t_stack **stack)
 	t_stack	*tmp;
 
 	list_size = ft_lstsize(*stack);
-	if (list_size <= 100)
+	if (list_size <= 5)
+		chunk_count = 1;
+	else if (list_size <= 100)
 		chunk_count = 5;
 	else
 		chunk_count = 11;

@@ -6,7 +6,7 @@
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 21:58:05 by ccakir            #+#    #+#             */
-/*   Updated: 2025/10/23 23:10:13 by ccakir           ###   ########.fr       */
+/*   Updated: 2025/10/31 18:07:42 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,31 +74,25 @@ void	get_max_to_head(t_stack	**b, t_stack	**a)
 	pa(a, b);
 }
 
-void	ft_sort(t_stack	**a, t_stack **b, long	*longed_args)
+void	ft_sort(t_stack **a, t_stack **b, long *longed_args)
 {
+	int	size;
 	int	chunk_count;
-	int	current_chunk;
 
 	bubble_sort(longed_args);
 	match_index(a, longed_args);
-	if (ft_lstsize(*a) == 1)
-		return ;
-	else if (ft_lstsize(*a) == 2)
+	size = ft_lstsize(*a);
+	if (size == 2)
 	{
 		sa(a);
 		return ;
 	}
 	chunk_count = chunk_generator(a);
-	current_chunk = 0;
-	while (current_chunk < chunk_count && *a)
-	{
-		if (is_in_chunks(a, current_chunk))
-			pb(a, b);
-		else if (has_chunk(a, current_chunk))
-			ra(a);
-		else
-			current_chunk++;
-	}
+	if (size <= 5)
+		ft_sort_small(a, b);
+	else
+		ft_sort_chunks(a, b, chunk_count);
 	while (*b)
 		get_max_to_head(b, a);
 }
+

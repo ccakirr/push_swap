@@ -8,6 +8,8 @@ SRCS =  main.c \
 		parser.c\
 		algorithm/ft_sort.c \
 		algorithm/ft_sort_utils.c \
+		algorithm/ft_sort_chunks.c \
+		algorithm/ft_sort_small.c \
 		ops/swap_funcs.c \
 		ops/r_swap_funcs.c \
 		ops/reverse_r_swap_funcs.c \
@@ -15,6 +17,7 @@ SRCS =  main.c \
 		libft/libft_func.c \
 		libft/ft_printf.c\
 		libft/ft_printf_utils.c
+
 OBJS		= $(SRCS:.c=.o)
 
 all: $(NAME)

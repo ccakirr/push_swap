@@ -6,7 +6,7 @@
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 20:16:18 by ccakir            #+#    #+#             */
-/*   Updated: 2025/10/29 17:26:41 by ccakir           ###   ########.fr       */
+/*   Updated: 2025/10/31 18:06:18 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,11 @@ void	bubble_sort(long *arr);
 void	match_index(t_stack **a, long *longed_args);
 int		chunk_generator(t_stack **stack);
 int		is_in_chunks(t_stack **a, int current_chunk);
+void	ft_sort_chunks(t_stack **a, t_stack **b, int chunk_count);
+int		is_sorted_stack(t_stack **stack);
+void	sort_three(t_stack **a);
+int		find_min_pos(t_stack **a);
+void	ft_sort_small(t_stack **a, t_stack **b);
 int		has_chunk(t_stack **a, int chunk_number);
 void	update_positions(t_stack **stack);
 void	ft_sort(t_stack **a, t_stack **b, long *longed_args);
