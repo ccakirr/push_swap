@@ -6,7 +6,7 @@
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 21:58:05 by ccakir            #+#    #+#             */
-/*   Updated: 2025/10/31 18:07:42 by ccakir           ###   ########.fr       */
+/*   Updated: 2025/10/31 18:14:22 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,4 +95,3 @@ void	ft_sort(t_stack **a, t_stack **b, long *longed_args)
 	while (*b)
 		get_max_to_head(b, a);
 }
-

@@ -6,7 +6,7 @@
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 18:01:50 by ccakir            #+#    #+#             */
-/*   Updated: 2025/10/31 18:10:08 by ccakir           ###   ########.fr       */
+/*   Updated: 2025/10/31 18:16:22 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,13 @@
 
 void	sort_three(t_stack **a)
 {
-	int	first = (*a)->index;
-	int	second = (*a)->next->index;
-	int	third = (*a)->next->next->index;
+	int	first;
+	int	second;
+	int	third;
 
+	first = (*a)->index;
+	second = (*a)->next->index;
+	third = (*a)->next->next->index;
 	if (first > second && second < third && first < third)
 		sa(a);
 	else if (first > second && second > third)
@@ -38,11 +41,15 @@ void	sort_three(t_stack **a)
 
 int	find_min_pos(t_stack **a)
 {
-	t_stack	*tmp = *a;
-	int		min = tmp->index;
-	int		pos = 0;
-	int		i = 0;
+	t_stack	*tmp;
+	int		min;
+	int		pos;
+	int		i;
 
+	tmp = *a;
+	min = tmp->index;
+	pos = 0;
+	i = 0;
 	while (tmp)
 	{
 		if (tmp->index < min)
