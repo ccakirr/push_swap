@@ -6,7 +6,7 @@
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 20:16:13 by ccakir            #+#    #+#             */
-/*   Updated: 2025/10/29 18:13:32 by ccakir           ###   ########.fr       */
+/*   Updated: 2025/11/29 21:16:32 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,22 +84,12 @@ int	main(int ac, char **av)
 		return (0);
 	longed_args = args_to_long(merged_args);
 	if (!longed_args)
-	{
-		if (merged_args)
-			free_split(merged_args);
-		return (0);
-	}
+		return (free_split(merged_args), 0);
 	if (is_duplicated(longed_args))
-	{
-		free_all(longed_args, a, b, merged_args);
-		ft_printf("Error\n");
-		return (0);
-	}
+		return (ft_printf("Error\n"),
+			free_all(longed_args, a, b, merged_args), 0);
 	if (is_sorted(longed_args))
-	{
-		free_all(longed_args, a, b, merged_args);
-		return (0);
-	}
+		return (free_all(longed_args, a, b, merged_args), 0);
 	a = args_to_stack(longed_args);
 	ft_sort(&a, &b, longed_args);
 	free_all(longed_args, a, b, merged_args);

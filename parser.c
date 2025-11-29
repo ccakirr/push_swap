@@ -6,7 +6,7 @@
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 10:43:51 by ccakir            #+#    #+#             */
-/*   Updated: 2025/10/29 17:42:36 by ccakir           ###   ########.fr       */
+/*   Updated: 2025/11/29 20:41:35 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ char	**merge_args(int argc, char **argv)
 	joined = ft_strdup("");
 	while (i < argc)
 	{
+		if (!argv[i] || !argv[i][0])
+			return (write(2, "Error\n", 6), free(joined), NULL);
 		tmp = ft_strjoin(joined, argv[i]);
 		free(joined);
 		joined = ft_strjoin(tmp, " ");
@@ -61,11 +63,7 @@ char	**merge_args(int argc, char **argv)
 	res = ft_split(joined, ' ');
 	free(joined);
 	if (!res[0])
-	{
-		ft_printf("Error\n");
-		free_split(res);
-		return (NULL);
-	}
+		return (write(2, "Error\n", 6), free_split(res), NULL);
 	return (res);
 }
 

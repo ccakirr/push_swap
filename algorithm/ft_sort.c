@@ -6,7 +6,7 @@
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 21:58:05 by ccakir            #+#    #+#             */
-/*   Updated: 2025/10/31 18:14:22 by ccakir           ###   ########.fr       */
+/*   Updated: 2025/11/29 19:57:53 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,10 +88,10 @@ void	ft_sort(t_stack **a, t_stack **b, long *longed_args)
 		return ;
 	}
 	chunk_count = chunk_generator(a);
-	if (size <= 5)
-		ft_sort_small(a, b);
-	else
+	if (size >= 100)
 		ft_sort_chunks(a, b, chunk_count);
+	else
+		ft_sort_small(a, b);
 	while (*b)
 		get_max_to_head(b, a);
 }
