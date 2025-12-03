@@ -6,7 +6,7 @@
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 20:16:18 by ccakir            #+#    #+#             */
-/*   Updated: 2025/10/31 18:06:18 by ccakir           ###   ########.fr       */
+/*   Updated: 2025/12/04 02:07:57 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ typedef struct s_node
 	int				index;
 	int				chunk;
 	int				pos;
-	int				cost_a;
-	int				cost_b;
 	struct s_node	*next;
 }	t_stack;
 
